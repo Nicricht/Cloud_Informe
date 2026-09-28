@@ -27,11 +27,11 @@ Para este caso se deben distinguir los modelos IaaS, PaaS y SaaS y aplicarlos a 
 
 **Amazon RDS — PaaS / servicio administrado:** RDS se relaciona con PaaS porque AWS administra gran parte de la plataforma necesaria para trabajar con una base de datos. El cliente no tiene que instalar ni mantener el servidor físico que existe por debajo y puede concentrarse en la base de datos, los usuarios, permisos y los datos almacenados.
 
-**Amazon S3 — servicio administrado asociado a PaaS para efectos de este caso:** S3 permite almacenar objetos sin administrar servidores de almacenamiento. AWS mantiene la infraestructura y el servicio, mientras que el cliente administra sus archivos, permisos y políticas de acceso. En la clasificación utilizada para esta evaluación, S3 se presenta junto con los servicios administrados asociados al modelo PaaS.
+**Amazon S3 — IaaS / almacenamiento de infraestructura administrado:** S3 permite almacenar objetos sin administrar servidores físicos. Dentro de la clasificación tradicional IaaS/PaaS, en este caso se relaciona con IaaS porque entrega capacidad de almacenamiento como recurso de infraestructura. AWS administra la infraestructura del servicio, mientras que el cliente administra sus objetos, permisos y políticas de acceso.
 
 **SaaS (Software as a Service):** corresponde a aplicaciones completas que el usuario consume directamente por internet. En la arquitectura solicitada no se utiliza un servicio SaaS de forma directa, porque los tres recursos pedidos son EC2, RDS y S3.
 
-En resumen, para la arquitectura de esta evaluación **EC2 se clasifica como IaaS**, mientras que **RDS y S3 se trabajan como servicios administrados asociados a PaaS**. Esta diferencia también influye en cuánto debe administrar el cliente en cada servicio.
+En resumen, para la arquitectura de esta evaluación **EC2 y S3 se relacionan con IaaS**, mientras que **RDS se relaciona con PaaS** por el mayor nivel de administración que entrega AWS sobre la plataforma de base de datos.
 
 ### 1.2 Nube pública frente a una solución On-Premise
 
@@ -52,6 +52,12 @@ Sin embargo, la nube pública también presenta desventajas. Los costos pueden a
 | Mantenimiento físico | Lo realiza AWS | Lo realiza la organización |
 | Control físico | Menor control directo | Mayor control sobre los equipos |
 | Dependencia | Internet y proveedor cloud | Infraestructura y personal interno |
+
+### 1.3 Modelos de precios y opciones de pago
+
+Para la estimación se utilizó la modalidad **On-Demand**. Esta opción permite pagar por el uso sin asumir un compromiso de uno o tres años, por lo que resulta adecuada para este ejercicio y para una carga que todavía no tiene un consumo histórico conocido.
+
+En EC2 existen alternativas que pueden reducir el costo cuando el uso es estable, como **Savings Plans**, a cambio de asumir un compromiso de consumo. También existen instancias **Spot**, cuyo precio puede ser menor, pero pueden ser interrumpidas y por eso no se eligieron para un servidor que se espera mantener disponible. En RDS se utilizó On-Demand y también existen opciones con compromiso para cargas permanentes. En S3 el costo depende principalmente de la cantidad almacenada y de las operaciones realizadas. Para mantener una estimación simple y comparable, se trabajó con On-Demand para EC2 y RDS y con 100 GB de S3 Standard.
 
 ---
 
@@ -195,13 +201,11 @@ Esta exportación se conserva como evidencia de que la estimación fue realizada
 
 ### 4.1 Selección de la región AWS
 
-Para esta propuesta se selecciona la región **us-east-1 (N. Virginia)**. La decisión se basa en que es una región disponible para trabajar dentro del entorno indicado en la evaluación y normalmente cuenta con una amplia disponibilidad de servicios AWS.
+Para la cotización se utilizó la región **us-east-1 (US East - N. Virginia)**. La rúbrica permite trabajar con **us-east-1 o us-west-2**, por lo que se eligió una región válida para el Learner Lab. Con la configuración utilizada, AWS Pricing Calculator entregó un costo total de **US$ 59.79 mensuales**, valor que quedó documentado en la estimación y en el PDF exportado.
 
-La región también permite mantener una cotización competitiva para los recursos utilizados. La latencia es otro factor importante, especialmente porque los usuarios pueden encontrarse en Chile. Una región más cercana geográficamente podría reducir la latencia, pero la selección final también depende de las regiones permitidas en AWS Academy Learner Lab y del costo de los servicios.
+La latencia también se consideró porque los usuarios pueden estar en Chile. En términos generales, la distancia geográfica influye en el tiempo de respuesta, pero en esta evaluación no se realizó una medición de latencia en milisegundos entre las dos regiones permitidas. Por eso, la decisión se basó en usar una región autorizada, mantener todos los servicios en la misma ubicación y trabajar con un costo que pudiera comprobarse con la calculadora.
 
-Por este motivo, para este ejercicio se mantiene **us-east-1** tanto en EC2, RDS como en S3, evitando mezclar regiones dentro de la misma estimación.
-
-> Antes de entregar, comprobar en la calculadora que todos los servicios quedaron efectivamente cotizados en us-east-1.
+Se mantuvo la misma región para EC2, RDS y S3. Esto evita mezclar ubicaciones dentro de la cotización, hace más fácil comparar los costos y reduce la complejidad de la arquitectura. Si la solución se llevara a producción, sería necesario medir la latencia real desde Chile y comparar nuevamente los costos antes de decidir la región definitiva.
 
 ### 4.2 Modelo de Responsabilidad Compartida de AWS
 
