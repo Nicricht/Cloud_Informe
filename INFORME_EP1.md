@@ -21,15 +21,17 @@ El costo mensual de estos recursos se calculará utilizando **AWS Pricing Calcul
 
 ### 1.1 Modelos de servicio cloud utilizados
 
-Los servicios utilizados se pueden relacionar con los modelos de servicio de computación en la nube.
+Para este caso se deben distinguir los modelos IaaS, PaaS y SaaS y aplicarlos a los servicios solicitados.
 
-**IaaS (Infrastructure as a Service):** entrega infraestructura tecnológica como servidores virtuales, redes y almacenamiento sin tener que comprar equipos físicos. En esta solución, **Amazon EC2** corresponde al modelo IaaS, ya que AWS entrega la máquina virtual, pero el usuario sigue siendo responsable de configurar el sistema operativo, las aplicaciones, los accesos y otros elementos del servidor.
+**Amazon EC2 — IaaS (Infrastructure as a Service):** EC2 corresponde a IaaS porque AWS entrega la infraestructura virtual necesaria para crear un servidor, pero el cliente todavía administra elementos como el sistema operativo, las aplicaciones, los usuarios y parte de la configuración de seguridad. La ventaja es que no se necesita comprar un servidor físico para ejecutar la aplicación.
 
-**PaaS (Platform as a Service):** entrega una plataforma administrada por el proveedor para que el usuario pueda trabajar sin hacerse cargo de toda la infraestructura que existe por debajo. En este caso, **Amazon RDS** se relaciona con PaaS porque AWS administra gran parte de la infraestructura necesaria para ejecutar la base de datos. El usuario se concentra principalmente en los datos, usuarios, permisos y configuración de la base de datos.
+**Amazon RDS — PaaS / servicio administrado:** RDS se relaciona con PaaS porque AWS administra gran parte de la plataforma necesaria para trabajar con una base de datos. El cliente no tiene que instalar ni mantener el servidor físico que existe por debajo y puede concentrarse en la base de datos, los usuarios, permisos y los datos almacenados.
 
-**Amazon S3** es un servicio administrado de almacenamiento de objetos. Para efectos de esta arquitectura se utiliza como un servicio administrado dentro de la plataforma AWS, ya que no es necesario instalar ni mantener servidores de almacenamiento. El usuario administra los archivos, permisos y políticas de acceso.
+**Amazon S3 — servicio administrado asociado a PaaS para efectos de este caso:** S3 permite almacenar objetos sin administrar servidores de almacenamiento. AWS mantiene la infraestructura y el servicio, mientras que el cliente administra sus archivos, permisos y políticas de acceso. En la clasificación utilizada para esta evaluación, S3 se presenta junto con los servicios administrados asociados al modelo PaaS.
 
-**SaaS (Software as a Service):** corresponde a aplicaciones completas que se consumen directamente por internet. En esta arquitectura no se utiliza un servicio SaaS de forma directa, porque los recursos solicitados corresponden a infraestructura y servicios administrados de AWS.
+**SaaS (Software as a Service):** corresponde a aplicaciones completas que el usuario consume directamente por internet. En la arquitectura solicitada no se utiliza un servicio SaaS de forma directa, porque los tres recursos pedidos son EC2, RDS y S3.
+
+En resumen, para la arquitectura de esta evaluación **EC2 se clasifica como IaaS**, mientras que **RDS y S3 se trabajan como servicios administrados asociados a PaaS**. Esta diferencia también influye en cuánto debe administrar el cliente en cada servicio.
 
 ### 1.2 Nube pública frente a una solución On-Premise
 
@@ -272,16 +274,28 @@ Finalmente, el Modelo de Responsabilidad Compartida demuestra que utilizar AWS n
 
 ---
 
-## 7. Verificación de cumplimiento de la rúbrica
+## 7. Verificación exacta de cumplimiento de la rúbrica
 
-| Indicador | Qué debe demostrar el informe | Estado |
-|---|---|---|
-| **IE1 (15%)** | Explicar IaaS, PaaS y SaaS y clasificar EC2, RDS y S3 dentro del caso | ✅ Redactado |
-| **IE2 (15%)** | Comparar nube pública con On-Premise incluyendo ventajas, desventajas y CapEx/OpEx | ✅ Redactado |
-| **IE3 (30%)** | AWS Pricing Calculator con EC2 t3.medium, RDS t3.small y 100 GB S3, con iniciales visibles | ⏳ Falta completar calculadora y capturas |
-| **IE4 (15%)** | Explicar responsabilidades del cliente para EC2, RDS y S3 | ✅ Redactado |
-| **IE5 (15%)** | Indicar y justificar región permitida considerando costo y latencia | ✅ Redactado, falta confirmar región usada en la cotización |
-| **IE6 (10%)** | Informe ordenado, capturas claras, diagrama y enlace público de AWS | ⏳ Falta agregar evidencias reales |
+La meta del documento es cubrir todos los requisitos descritos en el nivel **Muy buen desempeño**. No se marcará un indicador como finalizado hasta que exista la evidencia correspondiente.
+
+| Indicador | Puntaje máximo | Requisito de “Muy buen desempeño” | Estado actual |
+|---|---:|---|---|
+| **IE1** | **15** | Clasificar y describir correctamente EC2, RDS y S3 según IaaS y PaaS aplicados al caso | ✅ Redacción preparada |
+| **IE2** | **15** | Justificar nube pública frente a On-Premise con ventajas claras, incluyendo CapEx/OpEx y agilidad | ✅ Redacción preparada |
+| **IE3** | **30** | Incluir exactamente EC2 t3.medium, RDS t3.small y 100 GB S3, con iniciales del alumno visibles | ⏳ Falta estimación real y capturas |
+| **IE4** | **15** | Describir correctamente las responsabilidades del cliente para EC2, RDS y S3 bajo el Modelo de Responsabilidad Compartida | ✅ Redacción preparada |
+| **IE5** | **15** | Justificar técnicamente us-east-1 o us-west-2 considerando latencia y costo | ⏳ Redacción preparada; falta validar la región y los costos usados en la cotización |
+| **IE6** | **10** | Entregar informe profesional con enlace público de AWS, capturas claras y formato solicitado | ⏳ Falta incorporar evidencias reales y enlace público |
+| **TOTAL** | **100** | Todos los requisitos anteriores | ⏳ En desarrollo |
+
+### 7.1 Regla de control antes de entregar
+
+El informe no se considerará listo mientras falte cualquiera de estos cuatro elementos críticos:
+
+1. Las **iniciales del estudiante visibles** en EC2, RDS y S3.
+2. Los **tipos exactos de recursos**: t3.medium, t3.small y 100 GB S3 Standard.
+3. El **enlace público** de AWS Pricing Calculator.
+4. Las **capturas claras** que demuestren la configuración y el resumen de costos.
 
 ---
 
