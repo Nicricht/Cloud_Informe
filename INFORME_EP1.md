@@ -112,7 +112,7 @@ Configurar en AWS Pricing Calculator:
 - Horas mensuales: [VALOR UTILIZADO]
 - Nombre o descripción: **EC2-[INICIALES]**
 
-**Costo mensual obtenido:** **US$ [COSTO EC2]**
+**Costo mensual obtenido:** **US$ 30.37**
 
 <!-- INSERTAR AQUÍ CAPTURA REAL DE LA CONFIGURACIÓN DE EC2 -->
 
@@ -131,7 +131,7 @@ Configurar en AWS Pricing Calculator:
 - Almacenamiento de RDS: [VALOR UTILIZADO EN LA CALCULADORA]
 - Nombre o descripción: **RDS-[INICIALES]**
 
-**Costo mensual obtenido:** **US$ [COSTO RDS]**
+**Costo mensual obtenido:** **US$ 27.12**
 
 <!-- INSERTAR AQUÍ CAPTURA REAL DE LA CONFIGURACIÓN DE RDS -->
 
@@ -148,7 +148,7 @@ Configurar en AWS Pricing Calculator:
 - Solicitudes y transferencia: [VALORES UTILIZADOS O PREDETERMINADOS EN LA CALCULADORA]
 - Nombre o descripción: **S3-[INICIALES]**
 
-**Costo mensual obtenido:** **US$ [COSTO S3]**
+**Costo mensual obtenido:** **US$ 2.30**
 
 <!-- INSERTAR AQUÍ CAPTURA REAL DE LA CONFIGURACIÓN DE S3 -->
 
@@ -158,14 +158,16 @@ Configurar en AWS Pricing Calculator:
 
 | Servicio | Configuración solicitada | Costo mensual estimado |
 |---|---|---:|
-| Amazon EC2 | 1 × t3.medium | US$ [COSTO EC2] |
-| Amazon RDS | 1 × t3.small | US$ [COSTO RDS] |
-| Amazon S3 | 100 GB S3 Standard | US$ [COSTO S3] |
-| **Total mensual** | | **US$ [TOTAL]** |
+| Amazon EC2 | 1 × t3.medium | US$ 30.37 |
+| Amazon RDS | 1 × t3.small | US$ 27.12 |
+| Amazon S3 | 100 GB S3 Standard | US$ 2.30 |
+| **Total mensual** | | **US$ 59.79** |
 
 El total mensual se obtiene sumando los costos estimados de EC2, RDS y S3:
 
-**Costo mensual total = EC2 + RDS + S3**
+**Costo mensual total = EC2 + RDS + S3 = US$ 30.37 + US$ 27.12 + US$ 2.30 = US$ 59.79**
+
+**Costo estimado para 12 meses: US$ 717.48**
 
 <!-- INSERTAR AQUÍ CAPTURA DEL RESUMEN COMPLETO DE AWS PRICING CALCULATOR -->
 
@@ -282,7 +284,7 @@ La meta del documento es cubrir todos los requisitos descritos en el nivel **Muy
 |---|---:|---|---|
 | **IE1** | **15** | Clasificar y describir correctamente EC2, RDS y S3 según IaaS y PaaS aplicados al caso | ✅ Redacción preparada |
 | **IE2** | **15** | Justificar nube pública frente a On-Premise con ventajas claras, incluyendo CapEx/OpEx y agilidad | ✅ Redacción preparada |
-| **IE3** | **30** | Incluir exactamente EC2 t3.medium, RDS t3.small y 100 GB S3, con iniciales del alumno visibles | ⏳ Falta estimación real y capturas |
+| **IE3** | **30** | Incluir exactamente EC2 t3.medium, RDS t3.small y 100 GB S3, con iniciales del alumno visibles | ✅ Estimación realizada; falta incorporar las capturas al documento final |
 | **IE4** | **15** | Describir correctamente las responsabilidades del cliente para EC2, RDS y S3 bajo el Modelo de Responsabilidad Compartida | ✅ Redacción preparada |
 | **IE5** | **15** | Justificar técnicamente us-east-1 o us-west-2 considerando latencia y costo | ⏳ Redacción preparada; falta validar la región y los costos usados en la cotización |
 | **IE6** | **10** | Entregar informe profesional con enlace público de AWS, capturas claras y formato solicitado | ⏳ Falta incorporar evidencias reales y enlace público |
@@ -306,15 +308,15 @@ El informe no se considerará listo mientras falte cualquiera de estos cuatro el
 - [ ] Completar sección y fecha.
 - [ ] Definir las iniciales que aparecerán en AWS Pricing Calculator.
 - [ ] Crear la estimación en AWS Pricing Calculator.
-- [ ] Configurar EC2 **t3.medium**.
-- [ ] Configurar RDS **t3.small**.
-- [ ] Configurar S3 Standard con **100 GB**.
-- [ ] Comprobar que los tres servicios estén en la misma región.
-- [ ] Agregar iniciales del estudiante en cada servicio.
-- [ ] Registrar costo de EC2.
-- [ ] Registrar costo de RDS.
-- [ ] Registrar costo de S3.
-- [ ] Registrar costo mensual total.
+- [x] Configurar EC2 **t3.medium**.
+- [x] Configurar RDS **t3.small**.
+- [x] Configurar S3 Standard con **100 GB**.
+- [x] Comprobar que los tres servicios estén en **US East (N. Virginia)**.
+- [x] Agregar iniciales **NV** visibles en cada servicio.
+- [x] Registrar costo de EC2: US$ 30.37.
+- [x] Registrar costo de RDS: US$ 27.12.
+- [x] Registrar costo de S3: US$ 2.30.
+- [x] Registrar costo mensual total: US$ 59.79.
 - [ ] Tomar capturas claras de cada configuración.
 - [ ] Tomar captura del resumen de costos.
 - [ ] Generar y pegar el enlace público de AWS Pricing Calculator.
