@@ -2,9 +2,9 @@
 
 **Asignatura:** Soluciones Cloud  
 **Sigla:** CCY0010  
-**Estudiante:** [NOMBRE COMPLETO]  
-**Docente:** [NOMBRE DEL DOCENTE]  
-**Sección:** [SECCIÓN]  
+**Estudiante:** Nicolás Vega  
+**Docente:** Álvaro Vallejos  
+**Sección:** 007V  
 **Fecha:** [FECHA DE ENTREGA]  
 
 > **Estado del documento:** borrador de trabajo. Antes de entregar se deben reemplazar los campos entre corchetes, agregar las capturas reales de AWS Pricing Calculator, el enlace público de la estimación y los valores finales de costos.
@@ -315,9 +315,9 @@ El informe no se considerará listo mientras falte cualquiera de estos cuatro el
 
 ## 8. Lista de pendientes antes de entregar
 
-- [ ] Escribir nombre completo del estudiante.
-- [ ] Escribir nombre del docente.
-- [ ] Completar sección y fecha.
+- [x] Escribir nombre completo del estudiante: Nicolás Vega.
+- [x] Escribir nombre del docente: Álvaro Vallejos.
+- [x] Completar sección 007V y fecha.
 - [ ] Definir las iniciales que aparecerán en AWS Pricing Calculator.
 - [ ] Crear la estimación en AWS Pricing Calculator.
 - [x] Configurar EC2 **t3.medium**.
