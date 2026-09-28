@@ -173,9 +173,21 @@ El total mensual se obtiene sumando los costos estimados de EC2, RDS y S3:
 
 **Figura 5. Resumen de la estimación mensual de AWS.**
 
+### 3.6 Verificación del PDF exportado
+
+El PDF exportado desde AWS Pricing Calculator confirma la configuración final utilizada en la estimación:
+
+- **Amazon EC2:** región US East (N. Virginia), descripción **EC2-NV**, instancia **t3.medium**, Linux, Shared Instances, On-Demand y 100% de utilización. Costo mensual: **US$ 30.37**.
+- **Amazon RDS for MySQL:** región US East (N. Virginia), descripción **RDS-NV**, **db.t3.small**, 1 nodo, Single-AZ, On-Demand, 20 GB General Purpose SSD (gp2). Costo mensual: **US$ 27.12**.
+- **Amazon S3:** región US East (N. Virginia), descripción **S3-NV**, **100 GB de S3 Standard**. Costo mensual: **US$ 2.30**.
+- **Costo mensual total:** **US$ 59.79**.
+- **Costo estimado a 12 meses:** **US$ 717.48**.
+
+Esta exportación se conserva como evidencia de que la estimación fue realizada con los recursos y tipos de instancia solicitados.
+
 **Enlace público de AWS Pricing Calculator:** https://calculator.aws/#/estimate?id=38bc1c5b08a30d4d01c9c9c1bac5cde60b2ecd71
 
-**Archivo PDF exportado desde la calculadora:** [ADJUNTAR / INDICAR NOMBRE DEL ARCHIVO]
+**Archivo PDF exportado desde la calculadora:** `AWS_Pricing_Calculator_EP1_NV.pdf` (exportación realizada el 28/09/2026).
 
 ---
 
@@ -287,7 +299,7 @@ La meta del documento es cubrir todos los requisitos descritos en el nivel **Muy
 | **IE3** | **30** | Incluir exactamente EC2 t3.medium, RDS t3.small y 100 GB S3, con iniciales del alumno visibles | ✅ Estimación realizada; falta incorporar las capturas al documento final |
 | **IE4** | **15** | Describir correctamente las responsabilidades del cliente para EC2, RDS y S3 bajo el Modelo de Responsabilidad Compartida | ✅ Redacción preparada |
 | **IE5** | **15** | Justificar técnicamente us-east-1 o us-west-2 considerando latencia y costo | ⏳ Redacción preparada; falta validar la región y los costos usados en la cotización |
-| **IE6** | **10** | Entregar informe profesional con enlace público de AWS, capturas claras y formato solicitado | ⏳ Enlace público listo; faltan incorporar capturas y PDF exportado |
+| **IE6** | **10** | Entregar informe profesional con enlace público de AWS, capturas claras y formato solicitado | ⏳ Enlace público y PDF exportado listos; falta montar las capturas en la versión final |
 | **TOTAL** | **100** | Todos los requisitos anteriores | ⏳ En desarrollo |
 
 ### 7.1 Regla de control antes de entregar
@@ -320,7 +332,7 @@ El informe no se considerará listo mientras falte cualquiera de estos cuatro el
 - [ ] Tomar capturas claras de cada configuración.
 - [ ] Tomar captura del resumen de costos.
 - [x] Generar y pegar el enlace público de AWS Pricing Calculator: https://calculator.aws/#/estimate?id=38bc1c5b08a30d4d01c9c9c1bac5cde60b2ecd71
-- [ ] Exportar la estimación a PDF.
+- [x] Exportar la estimación a PDF y verificar que incluya EC2-NV, RDS-NV, S3-NV y los costos finales.
 - [ ] Crear la versión gráfica final del diagrama.
 - [ ] Revisar ortografía y formato.
 - [ ] Convertir el informe final a Word/PDF para la entrega.
