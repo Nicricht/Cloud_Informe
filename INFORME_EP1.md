@@ -173,7 +173,7 @@ El total mensual se obtiene sumando los costos estimados de EC2, RDS y S3:
 
 **Figura 5. Resumen de la estimación mensual de AWS.**
 
-**Enlace público de AWS Pricing Calculator:** [PEGAR ENLACE PÚBLICO]
+**Enlace público de AWS Pricing Calculator:** https://calculator.aws/#/estimate?id=38bc1c5b08a30d4d01c9c9c1bac5cde60b2ecd71
 
 **Archivo PDF exportado desde la calculadora:** [ADJUNTAR / INDICAR NOMBRE DEL ARCHIVO]
 
@@ -287,7 +287,7 @@ La meta del documento es cubrir todos los requisitos descritos en el nivel **Muy
 | **IE3** | **30** | Incluir exactamente EC2 t3.medium, RDS t3.small y 100 GB S3, con iniciales del alumno visibles | ✅ Estimación realizada; falta incorporar las capturas al documento final |
 | **IE4** | **15** | Describir correctamente las responsabilidades del cliente para EC2, RDS y S3 bajo el Modelo de Responsabilidad Compartida | ✅ Redacción preparada |
 | **IE5** | **15** | Justificar técnicamente us-east-1 o us-west-2 considerando latencia y costo | ⏳ Redacción preparada; falta validar la región y los costos usados en la cotización |
-| **IE6** | **10** | Entregar informe profesional con enlace público de AWS, capturas claras y formato solicitado | ⏳ Falta incorporar evidencias reales y enlace público |
+| **IE6** | **10** | Entregar informe profesional con enlace público de AWS, capturas claras y formato solicitado | ⏳ Enlace público listo; faltan incorporar capturas y PDF exportado |
 | **TOTAL** | **100** | Todos los requisitos anteriores | ⏳ En desarrollo |
 
 ### 7.1 Regla de control antes de entregar
@@ -319,7 +319,7 @@ El informe no se considerará listo mientras falte cualquiera de estos cuatro el
 - [x] Registrar costo mensual total: US$ 59.79.
 - [ ] Tomar capturas claras de cada configuración.
 - [ ] Tomar captura del resumen de costos.
-- [ ] Generar y pegar el enlace público de AWS Pricing Calculator.
+- [x] Generar y pegar el enlace público de AWS Pricing Calculator: https://calculator.aws/#/estimate?id=38bc1c5b08a30d4d01c9c9c1bac5cde60b2ecd71
 - [ ] Exportar la estimación a PDF.
 - [ ] Crear la versión gráfica final del diagrama.
 - [ ] Revisar ortografía y formato.
