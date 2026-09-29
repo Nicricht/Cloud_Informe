@@ -55,9 +55,9 @@ Sin embargo, la nube pública también presenta desventajas. Los costos pueden a
 
 ### 1.3 Modelos de precios y opciones de pago
 
-Para la estimación se utilizó la modalidad **On-Demand**. Esta opción permite pagar por el uso sin asumir un compromiso de uno o tres años, por lo que resulta adecuada para este ejercicio y para una carga que todavía no tiene un consumo histórico conocido.
+Para la estimación elegí **On-Demand**. Me pareció la opción más adecuada para este ejercicio porque se paga por el uso y no obliga a comprometerse por uno o tres años. Como este es un caso de estudio y no existe un historial real de consumo, preferí no usar una opción con compromiso.
 
-En EC2 existen alternativas que pueden reducir el costo cuando el uso es estable, como **Savings Plans**, a cambio de asumir un compromiso de consumo. También existen instancias **Spot**, cuyo precio puede ser menor, pero pueden ser interrumpidas y por eso no se eligieron para un servidor que se espera mantener disponible. En RDS se utilizó On-Demand y también existen opciones con compromiso para cargas permanentes. En S3 el costo depende principalmente de la cantidad almacenada y de las operaciones realizadas. Para mantener una estimación simple y comparable, se trabajó con On-Demand para EC2 y RDS y con 100 GB de S3 Standard.
+También revisé otras opciones. En EC2, por ejemplo, existen **Savings Plans** para usos más estables y **Spot** para conseguir precios menores, aunque estas últimas pueden interrumpirse. Para este trabajo preferí mantener EC2 y RDS en On-Demand para que la estimación fuera simple y fácil de comparar. En S3 el costo depende principalmente de cuánto se almacena y de las operaciones que se realizan, por eso dejé los 100 GB de S3 Standard que pide la pauta.
 
 ---
 
@@ -201,19 +201,11 @@ Esta exportación se conserva como evidencia de que la estimación fue realizada
 
 ### 4.1 Selección de la región AWS
 
-Para la cotización se utilizó la región **us-east-1 (US East - N. Virginia)**. La rúbrica permite trabajar con **us-east-1 o us-west-2**, por lo que se eligió una región válida para el Learner Lab. Con la configuración utilizada, AWS Pricing Calculator entregó un costo total de **US$ 59.79 mensuales**, valor que quedó documentado en la estimación y en el PDF exportado.
-
-La latencia también se consideró porque los usuarios pueden estar en Chile. En términos generales, la distancia geográfica influye en el tiempo de respuesta, pero en esta evaluación no se realizó una medición de latencia en milisegundos entre las dos regiones permitidas. Por eso, la decisión se basó en usar una región autorizada, mantener todos los servicios en la misma ubicación y trabajar con un costo que pudiera comprobarse con la calculadora.
-
-Se mantuvo la misma región para EC2, RDS y S3. Esto evita mezclar ubicaciones dentro de la cotización, hace más fácil comparar los costos y reduce la complejidad de la arquitectura. Si la solución se llevara a producción, sería necesario medir la latencia real desde Chile y comparar nuevamente los costos antes de decidir la región definitiva.
+Elegí la región **us-east-1 (US East - N. Virginia)** porque es una de las regiones permitidas para el Learner Lab. Con esa región, la calculadora dio un costo total de **US$ 59.79 al mes**. También consideré la latencia, ya que los usuarios podrían estar en Chile. No hice una prueba real en milisegundos entre us-east-1 y us-west-2, así que no sería correcto decir que una es más rápida sin medirlo. Por eso mantuve EC2, RDS y S3 en la misma región y trabajé con una opción permitida y con un costo que pude comprobar en la calculadora. Si esta solución se llevara a producción, ahí sí compararía la latencia real desde Chile y volvería a revisar los costos antes de elegir la región definitiva.
 
 ### 4.2 Modelo de Responsabilidad Compartida de AWS
 
-El Modelo de Responsabilidad Compartida significa que AWS y el cliente no tienen las mismas obligaciones de seguridad.
-
-AWS es responsable de la **seguridad de la nube**, es decir, de proteger los datacenters, el hardware, la infraestructura física, la red global y los componentes que permiten prestar sus servicios.
-
-El cliente es responsable de la **seguridad en la nube**. Sus responsabilidades cambian dependiendo del servicio que utilice.
+El Modelo de Responsabilidad Compartida significa que AWS y el cliente se reparten las tareas de seguridad. AWS se preocupa de la infraestructura física que hace funcionar sus servicios y el cliente tiene que configurar bien sus recursos y proteger sus datos. Las responsabilidades del cliente cambian según el servicio que esté usando.
 
 #### Amazon EC2
 
@@ -282,13 +274,13 @@ Para que el informe pueda demostrar el trabajo realizado, se deben agregar las s
 
 ## 6. Conclusiones
 
-El desarrollo de esta evaluación permitió comprender cómo se puede construir una solución básica en la nube utilizando distintos servicios de AWS. En la arquitectura propuesta, EC2 se utiliza para el procesamiento de la aplicación, RDS para la base de datos y S3 para el almacenamiento de archivos.
+Con este trabajo pude entender mejor cómo se arma una solución básica en AWS. EC2 sirve para ejecutar la aplicación, RDS para trabajar con la base de datos y S3 para guardar archivos u objetos.
 
-También se pudo observar una diferencia importante entre utilizar servicios cloud y mantener infraestructura propia. Con AWS no es necesario comprar servidores físicos desde el comienzo y los recursos pueden contratarse según las necesidades de la solución. Al mismo tiempo, es necesario controlar el uso de los servicios porque una mala configuración puede generar costos innecesarios.
+Al compararlo con On-Premise, la nube permite empezar sin comprar servidores físicos y hace más rápido crear o cambiar recursos. De todas formas, también hay que controlar lo que se deja funcionando, porque una mala configuración puede aumentar el costo.
 
-AWS Pricing Calculator permite estimar estos costos antes de implementar la infraestructura, lo que ayuda a planificar de mejor manera el presupuesto. Además, la selección de la región influye tanto en el costo como en la latencia, por lo que debe justificarse de acuerdo con las necesidades y restricciones del caso.
+AWS Pricing Calculator me permitió saber cuánto podría costar la solución antes de implementarla. Con la configuración que hice, el total quedó en US$ 59.79 al mes y US$ 717.48 para 12 meses. Con esos valores se puede tener una referencia antes de decidir si conviene implementar la arquitectura.
 
-Finalmente, el Modelo de Responsabilidad Compartida demuestra que utilizar AWS no significa que toda la seguridad quede en manos del proveedor. AWS protege la infraestructura que soporta los servicios, mientras que el cliente debe administrar correctamente sus usuarios, permisos, datos, aplicaciones y configuraciones de seguridad.
+Por último, entendí que usar AWS no significa que toda la seguridad quede a cargo del proveedor. AWS protege su infraestructura, pero el cliente sigue siendo responsable de configurar bien los accesos, usuarios, permisos y datos.
 
 ---
 
